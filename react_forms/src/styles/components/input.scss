@@ -1,0 +1,32 @@
+@use "../variables" as v;
+
+@mixin input() {
+    input[type= "text"],
+    input[type= "email"],
+    input[type= "password"],
+    select {
+        font-family: v.$font-family;
+        font-size: 1.2rem;
+        border: 0;
+        border-bottom: 1px solid;
+        outline: none;
+        padding: 0.3rem 0.1rem;
+        color: v.$error;
+
+
+        &:invalid[data-focused="true"] {
+            border-bottom: 1px solid v.$error;
+            color: v.$error;
+          }
+      
+       
+          &:invalid[data-focused="true"] ~ p {
+            display: block;
+          }
+          &.error-forgot-input {
+            border-bottom: 1px solid v.$error;
+            color: v.$error;
+          }
+     }
+    
+}
